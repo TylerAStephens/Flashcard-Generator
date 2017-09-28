@@ -9,7 +9,29 @@ var count = 0;
 // array to hold cards made
 var cardArray = [];
     
-// made a make card function to run the prompt and know when to stop
+// Created function for user to pick which type of card they would like to make
+var PickACard = function() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Which kind of flash card?",
+            choices: ["Basic", "Cloze"],
+            name: "leCard"
+          },
+    ]).then(function(answers) {
+        // If they choose Basic it will run makeBasicCards
+            if(answers.leCard == "Basic"){
+                makeBasicCards();
+         // If they choose Cloze it will run makeClozeCards
+            } else if(answers.leCard == "Cloze"){
+                makeClozeCards();
+            }
+
+});
+
+} // End of PickACard function
+
+// made a make card function for Basic Cards
 var makeBasicCards = function() {
 
 // If statement to cap number of cards to 5
@@ -50,7 +72,7 @@ inquirer.prompt([
 
 }; //ending makeBasicCard function
 
-// made a make card function to run the prompt and know when to stop
+// made a make card function for Cloze cards
 var makeClozeCards = function() {
     
 // If statement to cap number of cards to 5
@@ -101,4 +123,5 @@ inquirer.prompt([
 
 // Runs make cards function
 //makeBasicCards();
-makeClozeCards();
+//makeClozeCards();
+PickACard();
