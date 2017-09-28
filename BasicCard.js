@@ -1,5 +1,4 @@
-console.log("BC connected");
-
+//console.log("BC connected");
 // Made constructor function to create basic card objects with front and back
 function BasicCard(front,back) {
     this.front = front;
